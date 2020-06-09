@@ -1,0 +1,121 @@
+.nav-opener {
+	display: inline-block;
+	vertical-align: top;
+	width: 50px;
+	height: 40px;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	position: relative;
+
+	@media (min-width: 768px) {
+		display: none;
+	}
+	
+	span,
+	&::after,
+	&::before {
+		position: absolute;
+		top: 50%;
+		left: 25%;
+		right: 25%;
+		background: #fff;
+		height: 5px;
+		margin-top: -2px;
+		transition: all .3s linear;
+	}
+
+	&::after,
+	&::before {
+		content:'';
+		top:32%;
+	}
+
+	&::after {
+		top:70%;
+	}
+}
+
+.nav-active .nav-opener span {
+	opacity: 0;
+}
+
+.nav-active .nav-opener::after,
+.nav-active .nav-opener::before {
+	top: 50%;
+	left: 20%;
+	right: 20%;
+	transform: rotate(45deg);
+}
+
+.nav-active .nav-opener::after {
+	transform:rotate(-45deg);
+}
+
+.nav {
+	@extend %listreset;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity .3s ease-in-out, visibility .3s ease-in-out, background-color 800ms linear, border-top .3s ease-in-out;
+	text-align: center;
+	border-top: 1px solid #000;
+	z-index: 1;
+	margin: 0 -15px;
+	background-color: rgba(16, 22, 54, 0.2);
+
+	@media (min-width: 768px) {
+		opacity: 1;
+		visibility: visible;
+		display: flex;
+		position: static;
+		background-color: transparent !important;
+		border-top: none !important;
+		margin: 0;
+	}
+
+	@media (min-width: 768px) {
+		li {
+			margin-left: 33px;
+			line-height: 1em;
+		}
+	}
+
+	a {
+		display: block;
+		padding: 10px 0;
+		border-bottom: 1px solid #000;
+		color: #fff;
+		font-weight: 400;
+		transition: border-bottom .3s ease-in-out;
+
+		@media (min-width: 768px) {
+			border-bottom: none !important;
+			border-top: 1px solid transparent;
+			padding-top: 35px;
+			padding-bottom: 25px;
+
+			&:hover {
+				background-color: transparent;
+				border-top: 1px solid #32B0EE;
+			}
+		}
+	}
+
+	a.current {
+		text-transform: uppercase;
+
+		@media (min-width: 768px) {
+			text-transform: none;
+			background-color: transparent;
+			border-top: 1px solid #32B0EE;
+		}
+	}
+}
+
+.nav-active .nav {
+	opacity: 1;
+	visibility: visible;
+}

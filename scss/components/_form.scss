@@ -1,0 +1,146 @@
+form {
+	margin: 0;
+	padding: 0;
+	border-style: none;
+}
+
+input,
+textarea {
+	appearance: none;
+	box-sizing: border-box;
+	border: 1px solid #999;
+
+	@include placeholder {
+		color: #999;
+	}
+}
+
+textarea {
+	resize: none;
+}
+
+button,
+input[type='button'],
+input[type='reset'],
+input[type='file'],
+input[type='submit'] {
+	cursor: pointer;
+}
+
+.form-group {
+	margin-bottom: 15px;
+
+	textarea {
+		padding-bottom: 10px;
+	}
+}
+
+.form-control {
+	border-color: #cccccc;
+	border-style: none none solid;
+	border-bottom-width: 1px;
+	display: block;
+	width: 100%;
+	padding: 20px 0;
+	outline: none;
+	line-height: 1;
+
+	&:focus {
+		border-color: #0eb493;
+		
+		@include placeholder {
+			color: #0eb493;
+		}
+	}
+}
+
+.main-form {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+	.form-groups {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.contact-form .form-group:not(:last-child) {
+		width: 50%;
+		padding-right: 30px;
+	}
+	
+	.contact-form .form-group:nth-child(2) {
+		padding-right: 0;
+	}
+
+	.contact-form .form-group:last-child {
+		width: 100%;
+	}
+}
+
+.send {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	background: 0 15px transparent;
+	border: 0 none;
+	color: #000;
+	font-size: 16px;
+	line-height: 24px;
+	padding: 10px;
+	outline: none;
+	align-self: flex-end;
+	transition: .5s;
+
+	&:hover {
+		color: #0eb493;
+	}
+
+	i {
+		color: #0eb493;
+		font-size: 22px;
+		margin-right: 13px;
+		vertical-align: middle;
+		position: relative;
+		bottom: 3px;
+	}
+}
+
+.subscribe-form {
+	position: relative;
+	margin-bottom: 16px;
+}
+
+.subscribe-input {
+	padding: 15px 50px 15px 10px;
+	border: 2px solid #fff;
+	border-radius: 2px;
+	background-color: transparent;
+	color: #fff;
+	display: block;
+	width: 100%;
+	outline: none;
+	line-height: 1;
+
+	&:focus {
+		border-color: #32b0ee;
+	}
+}
+
+.subscribe-button {
+	border: none;
+	width: 50px;
+	position: absolute;
+	top: 2px;
+	right: 0;
+	bottom: 0;
+	color: #5abeab;
+	font-size: 20px;
+	background-color: transparent;
+	outline: none;
+}
+
+
+
